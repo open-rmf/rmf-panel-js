@@ -20,7 +20,9 @@ jobs:
           mkdir .public
           mv rmf_panel/dist .public/
           mv rmf_panel/index.html .public/
+      ## Will only deply page during merge to main
       - name: deploy_page
+        # if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

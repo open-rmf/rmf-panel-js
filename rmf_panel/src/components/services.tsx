@@ -1,5 +1,4 @@
-const API_SERVER_ADD = "http://localhost:8080"
-const GUI_SERVER_ADD = "http://localhost:5000"
+const API_SERVER_ADD = "http://localhost:8083"  /// TODO: make this configurable on GUI
 
 //API endpoints
 export const getRobots = async () => {
@@ -74,7 +73,7 @@ export const submitAllTasks = (taskList: any[]) => {
 
 export const getDashboardConfig = async () => {
     try {
-        let response = await fetch(GUI_SERVER_ADD + '/dashboard_config');
+        let response = await fetch(API_SERVER_ADD + '/dashboard_config');
         if(response) {
             let data = await response.json()
             console.log("Get Dashboard Config", data);
