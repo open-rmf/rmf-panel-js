@@ -1,9 +1,9 @@
 
-name: github pages
+name: gh-page
 on:
   push:
-    branches: [ main, contruct-repo ] # TODO: remove test repo soon
-  pull_request: # Comment this out soon
+    branches: [ main ]
+  pull_request:
     branches: [ main ]
 jobs:
   build-and-deploy:
@@ -20,9 +20,9 @@ jobs:
           mkdir .public
           mv rmf_panel/dist .public/
           mv rmf_panel/index.html .public/
-      ## Will only deply page during merge to main
+      ## Will only deploy page during merge to main
       - name: deploy_page
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
