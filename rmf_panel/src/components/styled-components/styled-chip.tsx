@@ -22,8 +22,14 @@ const returnChipColor = (state: string): string => {
             return cyan[500]
         case "Active/Executing":
             return blue[500]
+        case "Underway":
+            return blue[500]
+        case "Standby":
+            return blue[500]
         case "Completed":
             return teal[500]
+        case "Killed":
+            return red[400]
         case "Failed":
             return red[400]
         case "Cancelled":
